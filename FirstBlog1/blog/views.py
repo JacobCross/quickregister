@@ -55,7 +55,7 @@ def newform(request):
 
             # TODO: Figure out how to correctly redirect to a 'thanks' page (Not currently working).
 
-            return HttpResponseRedirect('thanks/', b)
+            return HttpResponseRedirect('/thanks/', b)
         else:
             return HttpResponseNotFound('<h1>Error</h1>')
 
