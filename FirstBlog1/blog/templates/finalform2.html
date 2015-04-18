@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form action="/finalform2/" method="POST"> {% csrf_token %}
+
+        <label for="fname">First name: </label>
+        <input id="fname" type="text" name="fname" value="John"><br>
+
+        <label for="lname">Last name: </label>
+        <input id="lname" type="text" name="lname" value="Doe"><br>
+
+        <label for="mname">Middle name/Initial: </label>
+        <input id="mname" type="text" name="mname" value="Lee"><br>
+
+        <label for="dob">Date of Birth: </label>
+        <input id="dob" type="text" name="dob" value="05/13/1996"><br>
+
+        <label for="birthp">Birth Place: </label>
+        <input id="birthp" type="text" name="birthp" value="San Jose, CA"><br>
+
+        <label for="gender">Gender Identity:</label>
+        <select name="gender" id="gender" onchange='CheckGender(this.value);'>
+            <option>Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+            <option value="dns">Prefer not to state</option>
+        </select>
+        <input type="text" name="genderhide" id="genderhide" style='display:none;'/>
+
+         <script type="text/javascript">
+            function CheckGender(val){
+             var element=document.getElementById('genderhide');
+             if(val=='Select Gender'||val=='other')
+               element.style.display='block';
+             else
+               element.style.display='none';
+            }
+
+        </script>
+        <br>
+
+        <label for="soc">Social Security Number: </label>
+        <input id="soc" type="text" name="soc" value="123-45-6789"><br>
+
+        <label for="school">School: </label>
+        <input id="school" type="text" name="school" value="Washington High School"><br>
+
+        <label for="maddress">Address Line one: </label>
+        <input id="maddress" type="text" name="maddress" value="560 Burton Street"><br>
+        <label for="maddress2">Address Line two: </label>
+        <input id="maddress2" type="text" name="maddress2" value="Apt.2"><br>
+        <label for="maddresscity">City: </label>
+        <input id="maddresscity" type="text" name="maddresscity" value="Healdsburg"><br>
+        <label for="maddressstate">State: </label>
+        <input id="maddressstate" type="text" name="maddressstate" value="CA"><br>
+
+        <label for="saddress">Address Line one: </label>
+        <input id="saddress" type="text" name="saddress" value="560 Burton Street"><br>
+        <label for="saddress2">Address Line two: </label>
+        <input id="saddress2" type="text" name="saddress2" value="Apt.2"><br>
+        <label for="saddresscity">City: </label>
+        <input id="saddresscity" type="text" name="saddresscity" value="Healdsburg"><br>
+        <label for="saddressstate">State: </label>
+        <input id="saddressstate" type="text" name="saddressstate" value="CA"><br>
+
+
+        <label for="hphone">home Phone Number: </label>
+        <input id="hphone" type="text" name="hphone" value="7071992234"><br>
+        <label for="unlisted">If your phone number is unlisted, please check the box to the right </label>
+        <input type="checkbox" id="unlisted" name="unlisted" value="true"><br>
+
+        <label for="livesWith">Who does the child live with? (One or more may be selected)</label>
+        <div id="livesWith">
+            <label for="father">Father</label>
+            <input type="checkbox" id="father" name="father" value="True"><br>
+            <label for="mother">Mother</label>
+            <input type="checkbox" id="mother" name="mother" value="True"><br>
+            <label for="guardian">Guardian</label>
+            <input type="checkbox" id="guardian" name="guardian" value="True"><br>
+        </div>
+
+        <label for="fathername">Father/Guardian Name: </label>
+        <input id="fathername" type="text" name="fathername" value="Bob Doe"><br>
+        <label for="fatherwnum">Father's Work Phone Number: </label>
+        <input id="fatherwnum" type="text" name="fatherwnum" value="7071551661"><br>
+        <label for="fathercnum">Father's Cell Phone Number: </label>
+        <input id="fathercnum" type="text" name="fathercnum" value="5556663324"><br>
+
+        <label for="mothername">Mother/Guardian Name: </label>
+        <input id="mothername" type="text" name="mothername" value="Mary Doe"><br>
+        <label for="motherwnum">Mother's Work Phone Number: </label>
+        <input id="motherwnum" type="text" name="motherwnum" value="5578963457"><br>
+        <label for="mothercnum">Mother's Cell Phone Number: </label>
+        <input id="mothercnum" type="text" name="mothercnum" value="1233365587"><br>
+
+
+        <input type="submit" value="Submit" >
+
+    </form>
+</body>
+</html>

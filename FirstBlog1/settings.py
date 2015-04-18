@@ -70,7 +70,7 @@ WSGI_APPLICATION = 'FirstBlog1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'firstblog3',   #os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'finaldata3',   #os.path.join(BASE_DIR, 'db.sqlite3'),
         'USER': 'root',
         'PASSWORD': 'toor',
     }
@@ -99,3 +99,29 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+
+#STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    # os.path.join(BASE_DIR, 'static'),
+	#'/home/FirstBlog/FirstBlog1/blog/static',
+#	os.path.join(os.path.dirname(__file__), "static"),
+#)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+   #'django.contrib.staticfiles.finders.DefaultStorageFinder',
+   #'django.contrib.staticfiles.storage.StaticFilesStorage',
+)
+
+
+MEDIA_ROOT = '/home/FirstBlog/FirstBlog1/media' #os.path.join(BASE_DIR, "media/")
+
+
+
+STATIC_ROOT = '/home/FirstBlog/FirstBlog1/static'
+ #'/home/FirstBlog/FirstBlog1/blog/static' os.path.join(BASE_DIR, "static/")

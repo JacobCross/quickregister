@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form action="/finalform/" method="POST"> {% csrf_token %}
+
+        <!-- TODO: Add date field that will save to DB (This may be possible in the view, before data is saved)-->
+    <fieldset>
+        <legend>Please enter information about the student you will be registering below.</legend>
+
+        <label for="fname">First name: </label>
+        <input id="fname" type="text" name="fname" value="John"><br>
+
+        <label for="lname">Last name: </label>
+        <input id="lname" type="text" name="lname" value="Doe"><br>
+
+        <label for="mname">Middle name/Initial: </label>
+        <input id="mname" type="text" name="mname" value="Lee"><br>
+
+        <label for="DOB">Date of Birth: </label>
+        <input id="DOB" type="text" name="DOB" value="05/13/1996">(MM/DD/YYYY)<br>
+
+        <label for="BirthP">Birth Place: </label>
+        <input id="BirthP" type="text" name="BirthP" value="San Jose, CA"><br>
+
+        <label for="gender">Gender Identity:</label>
+        <!--
+        <label for="Male">Male</label>
+        <input id="Male" type="radio" name="gender" value="">/
+        <label for="Female">Female</label>
+        <input id="Female" type="radio" name="gender" value="">/
+        <label for="Other">Other</label>
+        <input id="Other" type="radio" name="gender">
+        <input id="text" type="text" name="gender"> /
+        <label for="DNS">Prefer not to state</label>
+        <input id="DNS" type="radio" name="gender"><br>
+        -->
+        <select name="gender" id="gender" onchange='CheckGender(this.value);'>
+            <option>Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+            <option value="dns">Prefer not to state</option>
+        </select>
+        <input type="text" name="gender" id="genderHide" style='display:none;'/>
+
+         <script type="text/javascript">
+            function CheckGender(val){
+             var element=document.getElementById('genderHide');
+             if(val=='Select Gender'||val=='other')
+               element.style.display='block';
+             else
+               element.style.display='none';
+            }
+
+        </script>
+        <br>
+        <label for="SOC">Social Security Number: </label>
+        <input id="SOC" type="text" name="SOC" value="123-45-6789"><br>
+
+
+        <label for="school">School: </label>
+        <input id="school" type="text" name="school" value="Washington High School"><br>
+
+        <!--TODO: Implement checking value of school field input against a database to make sure the school is valid -->
+        <!--TODO: Also add a function to add a school if the school is not found in the database-->
+
+        <b><label for="mailing">Please enter the following information about your Mailing Address</label></b>
+        <fieldset id="mailing">
+        <label for="mAddress">Address Line one: </label>
+        <input id="mAddress" type="text" name="mAddress" value="560 Burton Street"><br>
+        <label for="mAddress2">Address Line two: </label>
+        <input id="mAddress2" type="text" name="mAddress2" value="Apt.2"><br>
+        <label for="mAddressCity">City: </label>
+        <input id="mAddressCity" type="text" name="mAddressCity" value="Healdsburg"><br>
+        <label for="mAddressState">State: </label>
+        <input id="mAddressState" type="text" name="mAddressState" value="CA"><br>
+        </fieldset>
+
+        <b><label for="street">Please enter the following information about your Street Address</label></b>
+        <fieldset id="street">
+
+        <!-- <label>If your mailing Address is the same as your street address, </label>
+        <button onclick="copyAddress()">Click This Button</button><br> -->
+
+        <!--<script>
+        function copyAddress() {
+            document.getElementById("S-Address").value = "test";
+        }
+        </script> -->
+
+        <label for="sAddress">Address Line one: </label>
+        <input id="sAddress" type="text" name="sAddress" value="560 Burton Street"><br>
+        <label for="sAddress2">Address Line two: </label>
+        <input id="sAddress2" type="text" name="sAddress2" value="Apt.2"><br>
+        <label for="sAddressCity">City: </label>
+        <input id="sAddressCity" type="text" name="sAddressCity" value="Healdsburg"><br>
+        <label for="sAddressState">State: </label>
+        <input id="sAddressState" type="text" name="sAddressState" value="CA"><br>
+        </fieldset>
+
+
+        <label for="hPhone">Home Phone Number: </label>
+        <input id="hPhone" type="text" name="hPhone" value="7071992234"><br>
+        <!-- <label for="unlisted">If your phone number is unlisted, please check the box to the right </label>
+        <input type="checkbox" id="unlisted" name="true" value="true"><br> -->
+
+       <!-- <label for="livesWith">Who does the child live with? (One or more may be selected)</label>
+       <div id="livesWith">
+            <label for="Father">Father</label>
+            <input type="checkbox" id="Father" name="true" value="True"><br>
+            <label for="Mother">Mother</label>
+            <input type="checkbox" id="Mother" name="true" value="True"><br>
+            <label for="Guardian">Guardian</label>
+            <input type="checkbox" id="Guardian" name="true" value="True"><br>
+            
+        </div> -->
+        
+        <label for="FatherName">Father/Guardian Name: </label>
+        <input id="FatherName" type="text" name="FatherName" value="Bob Doe"><br>
+        <label for="FatherWNum">Father's Work Phone Number: </label>
+        <input id="FatherWNum" type="text" name="FatherWNum" value="7071551661"><br>
+        <label for="FatherCNum">Father's Cell Phone Number: </label>
+        <input id="FatherCNum" type="text" name="FatherCNum" value="5556663324"><br>
+
+        <label for="MotherName">Mother/Guardian Name: </label>
+        <input id="MotherName" type="text" name="MotherName" value="Mary Doe"><br>
+        <label for="MotherWNum">Mother's Work Phone Number: </label>
+        <input id="MotherWNum" type="text" name="MotherWNum" value="5578963457"><br>
+        <label for="MotherCNum">Mother's Cell Phone Number: </label>
+        <input id="MotherCNum" type="text" name="MotherCNum" value="1233365587"><br>
+
+
+        <input type="submit" value="Submit" >
+    </fieldset>
+
+    </form>
+</body>
+</html>
