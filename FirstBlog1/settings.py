@@ -71,8 +71,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'finaldata3',   #os.path.join(BASE_DIR, 'db.sqlite3'),
-        'USER': 'root',
-        'PASSWORD': 'toor',
+        'USER': 'quickreg',
+        'PASSWORD': 'quickreg',
     }
 }
 
@@ -119,9 +119,8 @@ STATICFILES_FINDERS = (
 )
 
 
-MEDIA_ROOT = '/home/FirstBlog/FirstBlog1/media' #os.path.join(BASE_DIR, "media/")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 
 
 
-STATIC_ROOT = '/home/FirstBlog/FirstBlog1/static'
- #'/home/FirstBlog/FirstBlog1/blog/static' os.path.join(BASE_DIR, "static/")
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
